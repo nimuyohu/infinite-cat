@@ -1,7 +1,24 @@
 import {useState} from 'react';
 import InfiniteScroll  from "react-infinite-scroller"
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 function App() {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.background.paper,
+    },
+    gridList: {
+      width: 500,
+    },
+  }));
+  const classes = useStyles();
+  
   // 表示するデータ
   const [list, setList] = useState([]);
   // 再読み込み判定
@@ -26,30 +43,28 @@ function App() {
 
   //各スクロール要素
   const items = (
-    <ul>
-      {list.map((value,key) => 
-      <img
-        src={value.url}
-        alt='ネコちゃんの画像'
-        key={key}
-      />
-        )
-      }
-    </ul>);
-
-  //ロード中に表示する項目
-  const loader =<div className="loader" key={0}>Loading ...</div>;
-
-
-  return (
-    <div>
-      <h1>無限スクロール猫</h1>
+    <div className={classes.root}>
+    <GridList cellHeight={200} className={classes.gridList} cols={3}>
+      {list.map((value,key) => (
+        <GridListTile key={value.url}>
+          <img src={value.url} alt='cat' key={key}/>
+        </GridListTile>
+      ))}
+    </GridList>
+    
+    </div>
+    );
+    
+    //ロード中に表示する項目
+    const loader =<div className="loader" key={0}></div>;
+    
+    return (
+      <div>
       <InfiniteScroll
         loadMore={loadMore}    //項目を読み込む際に処理するコールバック関数
         hasMore={hasMore}      //読み込みを行うかどうかの判定
         loader={loader}
         >      {/* 読み込み最中に表示する項目 */}
-
           {items}             {/* 無限スクロールで表示する項目 */}
       </InfiniteScroll>
     </div>
