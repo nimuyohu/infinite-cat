@@ -3,6 +3,7 @@ import InfiniteScroll  from "react-infinite-scroller"
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 function App() {
   const useStyles = makeStyles((theme) => ({
@@ -47,7 +48,8 @@ function App() {
     <GridList cellHeight={200} className={classes.gridList} cols={3}>
       {list.map((value,key) => (
         <GridListTile key={value.url}>
-          <img src={value.url} alt='cat' key={key}/>
+            <img src={value.url} alt='cat' key={key}/>
+            <Skeleton variant="rect" width={210} height={500} />
         </GridListTile>
       ))}
     </GridList>
