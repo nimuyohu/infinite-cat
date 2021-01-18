@@ -36,22 +36,19 @@ function App() {
         )
       }
     </ul>);
-  
-  //全体のスタイル
-  const root_style = {
-    margin : "0 auto"
-  }
 
   //ロード中に表示する項目
   const loader =<div className="loader" key={0}>Loading ...</div>;
 
 
   return (
-    <div style={root_style}>
+    <div>
+      <h1>無限スクロール猫</h1>
       <InfiniteScroll
         loadMore={loadMore}    //項目を読み込む際に処理するコールバック関数
         hasMore={hasMore}      //読み込みを行うかどうかの判定
-        loader={loader}>      {/* 読み込み最中に表示する項目 */}
+        loader={loader}
+        >      {/* 読み込み最中に表示する項目 */}
 
           {items}             {/* 無限スクロールで表示する項目 */}
       </InfiniteScroll>
