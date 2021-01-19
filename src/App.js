@@ -45,15 +45,14 @@ function App() {
   //各スクロール要素
   const items = (
     <div className={classes.root}>
-    <GridList cellHeight={200} className={classes.gridList} cols={2}>
-      {list.map((value,key) => (
-        <GridListTile key={value.url}>
-            <img src={value.url} alt='cat' key={key}/>
+    <GridList className={classes.gridList} cols={2}>
+      {list.map((value,index) => (
+        <GridListTile key={index}>
+            <img src={value.url} alt='cat' key={index}/>
             <Skeleton variant="rect"  height={500} />
         </GridListTile>
       ))}
     </GridList>
-    
     </div>
     );
     
