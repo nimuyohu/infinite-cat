@@ -15,7 +15,7 @@ function App() {
       backgroundColor: theme.palette.background.paper,
     },
     gridList: {
-      width: 1000,
+      width: 800,
     },
   }));
   const classes = useStyles();
@@ -45,7 +45,7 @@ function App() {
   //各スクロール要素
   const items = (
     <div className={classes.root}>
-    <GridList className={classes.gridList} cols={2}>
+    <GridList cellHeight={200} className={classes.gridList} cols={2}>
       {list.map((value,index) => (
         <GridListTile key={index}>
             <img src={value.url} alt='cat' key={index}/>
@@ -53,6 +53,7 @@ function App() {
         </GridListTile>
       ))}
     </GridList>
+    
     </div>
     );
     
