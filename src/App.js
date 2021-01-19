@@ -15,7 +15,7 @@ function App() {
       backgroundColor: theme.palette.background.paper,
     },
     gridList: {
-      width: 500,
+      width: 1000,
     },
   }));
   const classes = useStyles();
@@ -31,7 +31,7 @@ function App() {
     // 猫ちゃんの画像API呼び出し
     const response = await fetch('https://api.thecatapi.com/v1/images/search');  //API通信
     const data = await response.json();  //取得データ
-
+    
     //データ件数が0件の場合、処理終了
     if (data.length < 1) {
       setHasMore(false);
@@ -39,17 +39,17 @@ function App() {
     }
 
     //取得データをリストに追加
-    setList([...list, ...data])
+    setList([...list,...data])
   }
 
   //各スクロール要素
   const items = (
     <div className={classes.root}>
-    <GridList cellHeight={200} className={classes.gridList} cols={3}>
+    <GridList cellHeight={200} className={classes.gridList} cols={2}>
       {list.map((value,key) => (
         <GridListTile key={value.url}>
             <img src={value.url} alt='cat' key={key}/>
-            <Skeleton variant="rect" width={210} height={500} />
+            <Skeleton variant="rect"  height={500} />
         </GridListTile>
       ))}
     </GridList>
