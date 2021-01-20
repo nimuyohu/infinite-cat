@@ -6,6 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Container from '@material-ui/core/Container';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import IconButton from '@material-ui/core/IconButton';
+
+
 
 function ElevationScroll(props) {
     const { children, window } = props;
@@ -33,13 +37,21 @@ ElevationScroll.propTypes = {
 };
 
 export default function ElevateAppBar(props) {
+    const text = 'https://twitter.com/intent/tweet?text='+encodeURIComponent('#無限スクロール猫\n無限にスクロールして無限に猫が見れるサイト https://infinity-cat.netlify.app/')
     return (
         <React.Fragment>
             <CssBaseline />
             <ElevationScroll {...props}>
                 <AppBar>
                     <Toolbar>
-                        <Typography variant="h6">無限スクロールで猫が見れるサイト</Typography>
+                        <Typography variant="h6">
+                            無限スクロール猫
+                            <a href={text}>
+                            <IconButton style={{ color: "#00acee", backgroundColor: "00acee" }}>
+                                <TwitterIcon />
+                            </IconButton>
+                            </a>
+                        </Typography>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
