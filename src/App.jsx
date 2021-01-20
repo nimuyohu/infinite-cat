@@ -51,7 +51,7 @@ function App() {
       <GridList cellHeight={200} className={classes.gridList} cols={3}>
         {list.map((value, index) => (
           <GridListTile key={index}>
-            <img src={value.url} alt='cat' key={index} />
+              <img src={value.url} alt='cat' key={index} />
             <Skeleton variant="rect" height={500} />
           </GridListTile>
         ))}
