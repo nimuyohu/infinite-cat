@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+span.MuiSkeleton-root.MuiSkeleton-rect.MuiSkeleton-pulse {
+  position: relative;
+  top: -30px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
