@@ -37,7 +37,7 @@ ElevationScroll.propTypes = {
 };
 
 export default function ElevateAppBar(props) {
-    const text = 'https://twitter.com/intent/tweet?text='+encodeURIComponent('#無限スクロール猫\n無限にスクロールして無限に猫が見れるサイト https://infinity-cat.netlify.app/')
+    const text = 'https://twitter.com/intent/tweet?text='+encodeURIComponent('#無限スクロール猫\n無限にスクロールして無限に猫が見れるサイト\nhttps://infinity-cat.netlify.app/')
     return (
         <React.Fragment>
             <CssBaseline />
