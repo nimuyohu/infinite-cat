@@ -31,7 +31,7 @@ function App() {
   const loadMore = async (page) => {
 
     // 猫ちゃんの画像API呼び出し
-    const response = await fetch('https://api.thecatapi.com/v1/images/search');  //API通信
+    const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=100');  //API通信
     const data = await response.json();  //取得データ
 
     //データ件数が0件の場合、処理終了
